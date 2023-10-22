@@ -1,0 +1,24 @@
+
+
+init mod go-html-test
+
+go get -u gorm.io/gorm
+go get -u gorm.io/driver/postgres
+
+go get -u github.com/gin-gonic/gin
+go get -u golang.org/x/crypto/bcrypt 
+go get -u github.com/golang-jwt/jwt/v4
+go get github.com/golang-jwt/jwt
+go get github.com/joho/godotenv
+go get github.com/githubnemo/CompileDaemon
+go install github.com/githubnemo/CompileDaemon
+
+//-// RUN compiledaemon --command="./go-html-test"
+
+nano ~/.bash_profile
+
+export GOPATH=/Users/sh/Developer
+export PATH=$PATH:$GOPATH/bin
+export G0111MODULE=on
+
+source ~/.bash_profile
