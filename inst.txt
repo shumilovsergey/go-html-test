@@ -12,6 +12,7 @@ go get github.com/golang-jwt/jwt
 go get github.com/joho/godotenv
 go get github.com/githubnemo/CompileDaemon
 go install github.com/githubnemo/CompileDaemon
+go get github.com/gin-contrib/cors
 
 //-// RUN compiledaemon --command="./go-html-test"
 

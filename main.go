@@ -6,6 +6,7 @@ import (
 	"go-html-test/middleware"
 	"net/http"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -20,6 +21,12 @@ func init() {
 func main() {
 	//запуск web сервера
 	r := gin.Default()
+
+	//CORS
+	config := cors.DefaultConfig()
+	config.AllowOrigins = []string{"http://localhost:3001"}
+	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE"}
+	r.Use(cors.New(config))
 
 	//main page
 	r.GET("/", func(c *gin.Context) {
