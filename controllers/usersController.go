@@ -12,11 +12,6 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-// что такуое * ? - operator
-// что такое & ? - operator
-// что такое с ?  -  code
-// что такое gin.H{} - message
-
 func Signup(c *gin.Context) {
 	// Get email + pass
 	var body struct {
@@ -127,7 +122,7 @@ func Login(c *gin.Context) {
 
 	// Send it back
 	c.SetSameSite(http.SameSiteDefaultMode)
-	c.SetCookie("Authorization", tokenString, 3600*24, "", "", false, true)
+	c.SetCookie("Authorization", tokenString, 3600*24, "/", "", false, false)
 
 	c.JSON(http.StatusOK, gin.H{
 		"message": "user is login",
