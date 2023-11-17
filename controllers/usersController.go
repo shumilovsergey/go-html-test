@@ -122,11 +122,12 @@ func Login(c *gin.Context) {
 
 	// Send it back
 	c.SetSameSite(http.SameSiteDefaultMode)
-	c.SetCookie("Authorization", tokenString, 3600*24, "/", "", false, false)
+	c.SetCookie("Authorization", tokenString, 3600*24, "/", "localhost", true, false)
 
-	c.JSON(http.StatusOK, gin.H{
-		"message": "user is login",
-	})
+	c.JSON(http.StatusOK, gin.H{"message": "Login successful", "Authorization": tokenString})
+
+	//include token in responce body
+	// c.JSON(http.StatusOK, gin.H{"message": "Login successful", "Authorization": tokenString})
 }
 
 func Validate(c *gin.Context) {
@@ -160,6 +161,7 @@ func Logout(c *gin.Context) {
 	}
 
 	// Send it back
+
 	c.SetSameSite(http.SameSiteDefaultMode)
 	c.SetCookie("Authorization", tokenString, 3600*24, "", "", false, true)
 	c.JSON(http.StatusOK, gin.H{
